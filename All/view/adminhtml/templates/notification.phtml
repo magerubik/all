@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © 2021 magerubik.com. All rights reserved.
+ * @author Magerubik Team <info@magerubik.com>
+ * @package Magerubik_All
+ */
+?>
+<?php
+/** @var \Magerubik\All\Block\Adminhtml\Notification $block */
+?>
+<?php if ($count = $block->getUpdatesCount()): ?>
+<style>
+    .mrall-tab-container > .admin__page-nav-title:before {
+        content: '<?= (int)$count ?>';
+    }
+</style>
+<?php endif; ?>

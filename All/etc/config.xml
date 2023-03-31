@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2021 magerubik.com. All rights reserved.
+ * @author Magerubik Team <info@magerubik.com>
+ * @package Magerubik_All
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <magerubik_all>
+            <notifications>
+                <type>INFO,PROMO,UPDATE,MAGENTO_TIPS</type>
+                <frequency>3</frequency>
+            </notifications>
+        </magerubik_all>
+    </default>
+</config>

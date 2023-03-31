@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2021 magerubik.com. All rights reserved.
+ * @author Magerubik Team <info@magerubik.com>
+ * @package Magerubik_All
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="magerubik_all">
+        <job name="mrall_feeds_refresh" instance="Magerubik\All\Cron\RefreshFeedData" method="execute">
+            <schedule>0 * * * *</schedule>
+        </job>
+    </group>
+</config>

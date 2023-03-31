@@ -1,0 +1,28 @@
+<?php
+/**
+ * Copyright © 2021 magerubik.com. All rights reserved.
+ * @author Magerubik Team <info@magerubik.com>
+ * @package Magerubik_All
+ */
+?>
+<?php
+/**
+ * @var \Magerubik\All\Block\Import $block
+ */
+?>
+<script>
+    require([
+            'jquery',
+            'Magento_Ui/js/modal/alert',
+            'prototype'
+        ], function($) {
+            //<![CDATA[
+            var entity = $('#entity');
+            entity.hide();
+            entity.closest('fieldset').find('label.label.admin__field-label').css('visibility','hidden');
+            $(entity).val('<?= $block->escapeHtml($block->getImportEntity()) ?>');
+            varienImport.handleEntityTypeSelector();
+            //]]>
+        }
+    );
+</script>

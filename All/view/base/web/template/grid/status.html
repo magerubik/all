@@ -1,0 +1,6 @@
+<!-- ko if: $row().status == 0 || $row().is_active == 0 -->
+<span class="magerubik-disabled"><span translate="'Disabled'"></span></span>
+<!-- /ko -->
+<!-- ko if: $row().status == 1 || $row().is_active == 1 -->
+<span class="magerubik-enabled"><span translate="'Enabled'"></span></span>
+<!-- /ko -->

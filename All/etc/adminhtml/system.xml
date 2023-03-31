@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2021 magerubik.com. All rights reserved.
+ * @author Magerubik Team <info@magerubik.com>
+ * @package Magerubik_All
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magerubik" translate="label" sortOrder="88888" class="magerubik-tab mrall-tab-container">
+            <label>Magerubik Extensions</label>
+        </tab>
+        <section id="magerubik_all" translate="label" type="text" sortOrder="-5000" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label><![CDATA[Extensions &amp; Notifications]]></label>
+            <tab>magerubik</tab>
+            <resource>Magerubik_All::config</resource>
+            <group id="extensions" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Installed Extensions</label>
+                <frontend_model>Magerubik\All\Block\Adminhtml\Extensions</frontend_model>
+            </group>
+            <group id="notifications" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>Notifications</label>
+                <field id="type" translate="label" type="multiselect" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>I want to Receive Notifications about:</label>
+                    <source_model>Magerubik\All\Model\Source\NotificationType</source_model>
+                    <backend_model>Magerubik\All\Model\Config\Backend\Unsubscribe</backend_model>
+					<can_be_empty>1</can_be_empty>
+                </field>
+				<field id="frequency" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Update Frequency</label>
+                    <source_model>Magerubik\All\Model\Source\Frequency</source_model>
+                </field>
+            </group> 
+        </section>
+    </system>
+</config>

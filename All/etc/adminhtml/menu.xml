@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2021 magerubik.com. All rights reserved.
+ * @author Magerubik Team <info@magerubik.com>
+ * @package Magerubik_All
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magerubik_All::menu" title="Magerubik" module="Magerubik_All" translate="title" sortOrder="68" resource="Magerubik_All::menu"/>
+        <add id="Magerubik_All::other" title="Other" module="Magerubik_All" translate="title" sortOrder="1068" parent="Magerubik_All::menu" resource="Magerubik_All::other"/>
+    </menu>
+</config>

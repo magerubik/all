@@ -1,0 +1,99 @@
+<?php
+/**
+ * Copyright © 2021 magerubik.com. All rights reserved.
+ * @author Magerubik Team <info@magerubik.com>
+ * @package Magerubik_All
+ */
+?>
+<?php
+/** @var \Magerubik\All\Block\Adminhtml\Extensions $block */
+$modules = $block->getModuleList();
+?>
+<div class="mrall-updates-block">
+    <h2 class="mrall-title">
+        <?= $block->escapeHtml(__('Installed Extensions')) ?>
+    </h2>
+    <div class="mrall-updates-container">
+        <div class="mrall-btns-block">
+            <a href="https://magerubik.com/extupdates/account/downloads"
+               class="mrall-btn -orange"
+               target="_blank"
+               title="<?= $block->escapeHtml(__('Get Updates at Your Magerubik.com Account')) ?>">
+                <?= $block->escapeHtml(__('Get Updates at Your')) ?>
+                <span class="_strong"><?= $block->escapeHtml(__('Magerubik.com')) ?></span>
+                <?= $block->escapeHtml(__('Account')) ?>
+            </a>
+        </div>
+        <?php if(count($modules['hasUpdate']) > 0 || count($modules['lastVersion']) > 0): ?>
+			<table class="mrall-modules-table data-grid">
+				<thead>
+					<tr>
+						<th class="data-grid-th"><?= __('Title'); ?></th>
+						<th class="data-grid-th"><?= __('version'); ?></th>
+						<th class="data-grid-th data-grid-actions-cell"><?= __('Action'); ?></th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php foreach ($modules['hasUpdate'] as $module): ?>
+				<tr>
+					<td class="mrall-title-container">
+						<h3 class="mrall-title">
+							<?= $block->escapeHtml($module['description']) ?>
+						</h3>
+					</td>
+					<td class="mrall-version-block">
+						<div class="mrall-version-container">
+							<span class="mrall-version">
+								<?= $block->escapeHtml($module['version']) ?><small>(<?=__('current');?>)</small>
+							</span>
+							<span class="mrall-svg -arrow"></span>
+							<span class="mrall-version">
+								<?= $block->escapeHtml($module['lastVersion']) ?><small>(<?=__('last version');?>)</small>
+							</span>
+						</div>
+					</td>
+					<td class="data-grid-actions-cell">
+						<?php if (!empty($module['url'])): ?>
+							<a href="<?= $block->escapeUrl($module['url']) ?>"
+							   class="mrall-link"
+							   target="_blank"
+							   title="<?= $block->escapeHtml(__('View page')) ?>">
+								<?= $block->escapeHtml(__('View page')) ?>
+							</a>
+						<?php endif ?>
+					</td>
+				</tr>
+				<?php endforeach; ?>
+				<?php foreach ($modules['lastVersion'] as $module): ?>
+					<tr>
+						<td class="mrall-title-container">
+							<h3 class="mrall-title">
+								<?= $block->escapeHtml($module['description']) ?>
+							</h3>
+						</td>
+						<td class="mrall-version-block">
+							<span class="mrall-version-container">
+								<span class="mrall-svg"></span>
+								<span class="mrall-version"><?= $block->escapeHtml($module['version']) ?></span>
+							</span>
+							<?php if (!empty($module['date'])): ?>
+							<span class="mrall-date"><?= $block->escapeHtml($module['date']) ?></span>
+							<?php endif; ?>
+						</td>
+						<td class="data-grid-actions-cell">
+							<?php if (!empty($module['url'])): ?>
+								<a href="<?= $block->escapeUrl($module['url']) ?>"
+								   class="mrall-link"
+								   target="_blank"
+								   title="<?= $block->escapeHtml(__('View page')) ?>">
+									<?= $block->escapeHtml(__('View page')) ?>
+								</a>
+							<?php endif ?>
+						</td>
+					</tr>
+				<?php endforeach; ?>
+				</tbody>
+			</table>	
+		<?php endif ?>
+    </div>
+</div>

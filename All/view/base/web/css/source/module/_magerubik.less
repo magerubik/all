@@ -1,0 +1,60 @@
+@import 'base/_variable.less';
+@import 'base/_js-class.less';
+@import 'base/_element.less';
+& when (@media-common = true){
+	.mr-w100 {width:100%;}
+	.mrbtn {
+		border: none !important;color:#fff !important;text-align: center;background:@gray_color;
+		&:hover, &:active, &:focus {
+			background-color: darken(@gray_color, 10%);
+        }
+	}
+	a.mrbtn, label.mrbtn {display: inline-block;padding: @base-space @base-space*2;line-height: 1;text-decoration: none !important;cursor: pointer;text-align: center;}
+	.mrbnt_green {
+		background:@green_color;
+		&:hover, &:active, &:focus {
+			background-color: darken(@green_color, 10%);;
+        }
+	}
+	.mrbnt_green2 {
+		background:@green2_color;
+		&:hover, &:active, &:focus {
+			background-color: darken(@green2_color, 10%);;
+        }
+	}
+	.mrbnt_dange {
+		background:@red_color;
+		&:hover, &:active, &:focus {
+			background-color: darken(@red_color, 10%);;
+        }
+	}
+	.mrbnt_dange2 {
+		background:@orange_color;
+		&:hover, &:active, &:focus {
+			background-color: darken(@orange_color, 10%);;
+        }
+	}
+	.bg-gradient-info {
+	  background: #17ead9;
+	  background: -webkit-linear-gradient( 45deg , #17ead9, #6078ea) !important;
+	  background: linear-gradient( 45deg , #17ead9, #6078ea) !important;
+	}
+	.bg-gradient-danger {
+	  background: #f43e29;
+	  background: -webkit-linear-gradient( 45deg , #f43e29, #93190c) !important;
+	  background: linear-gradient( 45deg , #f43e29, #93190c) !important;
+	}
+	.bg-gradient-success {
+	  background: #bff463;
+	  background: -webkit-linear-gradient( 45deg , #bff463, #77b311) !important;
+	  background: linear-gradient( 45deg , #bff463, #77b311) !important;
+	}
+	.bg-gradient-warning {
+	  background: #ffdf40;
+	  background: -webkit-linear-gradient( 45deg , #ffdf40, #ff8359) !important;
+	  background: linear-gradient( 45deg , #ffdf40, #ff8359) !important;
+	}
+	.modal-popup .page-wrapper {min-height: unset;}
+	.hkk_popup_md.modal-popup .modal-inner-wrap {max-width: 960px;} 
+	.hkk_popup_sm.modal-popup .modal-inner-wrap {max-width: 600px;} 
+}	
