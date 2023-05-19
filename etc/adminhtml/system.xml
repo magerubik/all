@@ -15,6 +15,14 @@
             <label><![CDATA[Extensions &amp; Notifications]]></label>
             <tab>magerubik</tab>
             <resource>Magerubik_All::config</resource>
+			<group id="license" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Active Customer Key</label>
+                <field id="key" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Customer Key</label>
+                    <backend_model>Magerubik\All\Model\Config\Backend\Saveconfig</backend_model>
+                    <comment>Please check your license key in your account details. Contact to provider when you would like to reset the license key to apply extension for new domain.</comment>
+                </field>
+            </group>
             <group id="extensions" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>Installed Extensions</label>
                 <frontend_model>Magerubik\All\Block\Adminhtml\Extensions</frontend_model>

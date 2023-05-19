@@ -7,6 +7,8 @@
 namespace Magerubik\All\Model;
 use Magerubik\All\Model\Feed\ExtensionsProvider;
 use Magento\Framework\Module\ModuleListInterface;
+use Magerubik\All\Model\ResourceModel\License\CollectionFactory;
+use Magerubik\All\Helper\TimeHelper;
 class ModuleListProcessor
 {
     /**
@@ -24,15 +26,21 @@ class ModuleListProcessor
     /**
      * @var ModuleInfoProvider
      */
+	private $timeHelper;
     private $moduleInfoProvider;
+    private $collectionFactory;
     public function __construct(
         ModuleListInterface $moduleList,
         ExtensionsProvider $extensionsProvider,
+		TimeHelper $timeHelper,
+		CollectionFactory $collectionFactory,
         ModuleInfoProvider $moduleInfoProvider
     ) {
         $this->moduleList = $moduleList;
         $this->extensionsProvider = $extensionsProvider;
         $this->moduleInfoProvider = $moduleInfoProvider;
+		$this->timeHelper = $timeHelper;
+		$this->collectionFactory = $collectionFactory;
     }
     /**
      * @return array
@@ -90,8 +98,42 @@ class ModuleListProcessor
             $module['description'] = $ext['name'];
             $module['url'] = !empty($ext['url']) ? $ext['url'] : '';
             $module['date'] = !empty($ext['date']) ? $ext['date'] : '';
+			$price = !empty($ext['price']) ? $ext['price'] : 0;
+			if($price==0){
+				$module['active']  = '<p><b style="color: #00a824;">FREE</b></p>';
+			} else {
+				$module['active']  = $this->_getActiveHtml($moduleCode);
+			}
+			
             return $module;
         }
         return '';
     }
+	protected function _getActiveHtml($moduleCode)
+    {
+		$html = base64_decode('PHAgc3R5bGU9ImNvbG9yOiByZWQ7Ij48Yj5OT1QgVkFMSUQ8L2I+PC9wPg==');
+        $mainDomain = $this->timeHelper->getYourDomain( $_SERVER['SERVER_NAME']);
+        if($mainDomain != 'dev') {
+            $isVaild = false;
+            $collection = $this->collectionFactory->create()->addFieldToFilter('licence_path',$moduleCode);
+            $domainCount = 0;
+            $timeActive = '';
+            if($collection->getSize() > 0) {
+				foreach ($collection as $item)
+                {
+                    if($item->getData('licence_code') == md5($mainDomain.$moduleCode.$item->getData('licence_key'))) {
+                        $isVaild = true;
+                        $domainCount = $item->getData('licence_count');
+                        $timeActive = $item->getData('created_time');
+                        break;
+                    }
+                }
+            }
+            if($isVaild) {
+                $html = base64_decode('PGI+W0RvbWFpbkNvdW50XSBEb21haW4gTGljZW5zZTwvYj48YnI+PHAgc3R5bGU9IndoaXRlLXNwYWNlOiBub3dyYXA7Ij48Yj5BY3RpdmUgRGF0ZTogPC9iPltDcmVhdGVkVGltZV08L3A+');
+                $html = str_replace(array('[DomainCount]','[CreatedTime]'),array($domainCount,$timeActive),$html);
+            }
+        }
+		return $html;
+	}
 }

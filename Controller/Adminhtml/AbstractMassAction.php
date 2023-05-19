@@ -54,9 +54,13 @@ abstract class AbstractMassAction extends Action
         if ($collectionSize) {
             try {
                 foreach ($collection->getItems() as $model) {
-                    $this->itemAction($model);
+                    $per=0;
+					if ($model->getId() <= $this->getPermission() ) {
+						$per++;
+					}
+					$this->itemAction($model);
                 }
-                $this->messageManager->addSuccessMessage($this->getSuccessMessage($collectionSize));
+                $this->messageManager->addSuccessMessage($this->getSuccessMessage($collectionSize-$per));
             } catch (LocalizedException $e) {
                 $this->messageManager->addErrorMessage($e->getMessage());
             } catch (CouldNotSaveException $e) {
@@ -85,5 +89,9 @@ abstract class AbstractMassAction extends Action
         return $collectionSize
             ? __('A total of %1 record(s) have been changed.', $collectionSize)
             : __('No records have been changed.');
+    }
+	protected function getPermission()
+    {
+        return 0;
     }
 }

@@ -5,4 +5,18 @@
         <column xsi:type="timestamp" name="expiration_date" nullable="true" comment="Expiration Date"/>
         <column xsi:type="varchar" name="image_url" nullable="true" length="255" default="null" comment="Image Url"/>
     </table>
+	<table name="magerubik_licence" resource="default" engine="innodb" comment="Magerubik Licence Table">
+        <column xsi:type="int" name="licence_id" padding="5" unsigned="true" nullable="false" identity="true" comment="Licence ID"/>
+        <column xsi:type="int" name="licence_count" padding="5" nullable="false" comment="Licence Count"/>
+        <column xsi:type="varchar" name="licence_list" nullable="false" length="500" comment="Licence List"/>
+        <column xsi:type="varchar" name="licence_path" nullable="false" length="255" comment="Licence Path"/>
+        <column xsi:type="varchar" name="licence_code" nullable="false" length="255" comment="Licence Code"/>
+        <column xsi:type="text" name="licence_key" nullable="true" comment="Customer Licence"/>
+        <column xsi:type="text" name="licence_domains" nullable="true" comment="licence domains"/>
+        <column xsi:type="timestamp" name="created_time" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Post Creation Time"/>
+		<column xsi:type="smallint" name="is_valid" padding="5" nullable="false" default="0" comment="Licence Is Valid"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="licence_id"/>
+        </constraint>
+	</table>
 </schema>

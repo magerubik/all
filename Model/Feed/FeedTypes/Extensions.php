@@ -52,7 +52,7 @@ class Extensions
      */
     public function execute(): array
     {
-        if ($cache = $this->cache->load(self::EXTENSIONS_CACHE_ID)) {
+		if ($cache = $this->cache->load(self::EXTENSIONS_CACHE_ID)) {
             return $this->serializer->unserialize($cache);
         }
         return $this->getFeed();
@@ -70,7 +70,7 @@ class Extensions
         if (isset($feedXml->channel->item)) {
             $result = $this->prepareFeedData($feedXml);
         }
-        $this->cache->save(
+		$this->cache->save(
             $this->serializer->serialize($result),
             self::EXTENSIONS_CACHE_ID,
             [self::EXTENSIONS_CACHE_ID]
@@ -97,7 +97,8 @@ class Extensions
                 'url' => $this->escaper->escapeUrl((string)$productPageLink),
                 'version' => $this->escaper->escapeHtml((string)$item->version),
                 'guide' => $this->escaper->escapeUrl((string)$item->guide),
-                'date' => $this->escaper->escapeHtml($dateString)
+                'date' => $this->escaper->escapeHtml($dateString),
+                'price' => $this->escaper->escapeHtml((int)$item->price)
             ];
         }
         return $result;

@@ -10,5 +10,6 @@
     <menu>
         <add id="Magerubik_All::menu" title="Magerubik" module="Magerubik_All" translate="title" sortOrder="68" resource="Magerubik_All::menu"/>
         <add id="Magerubik_All::other" title="Other" module="Magerubik_All" translate="title" sortOrder="1068" parent="Magerubik_All::menu" resource="Magerubik_All::other"/>
+        <add id="Magerubik_All::config" title="Extension info" module="Magerubik_All" translate="title" sortOrder="999" parent="Magerubik_All::other" action="adminhtml/system_config/edit/section/magerubik_all" resource="Magerubik_All::config"/>
     </menu>
 </config>

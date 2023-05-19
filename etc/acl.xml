@@ -10,7 +10,11 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Magerubik_All::menu" title="Magerubik Extensions" translate="title" sortOrder="79"/>
+                <resource id="Magerubik_All::menu" title="Magerubik" translate="title" sortOrder="30">
+					<resource id="Magerubik_All::other" title="Other" translate="title" sortOrder="999">
+						<resource id="Magerubik_All::config" title="Magerubik Extensions info" translate="title" sortOrder="1"/>
+					</resource>
+				</resource>
             </resource>
         </resources>
     </acl>

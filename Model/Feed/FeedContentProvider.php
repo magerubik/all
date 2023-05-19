@@ -21,6 +21,10 @@ class FeedContentProvider
      * Path to EXTENSIONS
      */
     const URN_EXTENSIONS = 'magerubik.com/feed-extensions.xml';
+	/**
+     * Path to FREE EXTENSIONS
+     */
+    const URN_FREE_EXTENSIONS = 'magerubik.com/feed-free-extensions.xml';
     /**
      * @var CurlFactory
      */

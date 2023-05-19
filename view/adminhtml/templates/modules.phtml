@@ -30,6 +30,7 @@ $modules = $block->getModuleList();
 					<tr>
 						<th class="data-grid-th"><?= __('Title'); ?></th>
 						<th class="data-grid-th"><?= __('version'); ?></th>
+						<th class="data-grid-th"><?= __('Active Status'); ?></th>
 						<th class="data-grid-th data-grid-actions-cell"><?= __('Action'); ?></th>
 					</tr>
 				</thead>
@@ -51,6 +52,9 @@ $modules = $block->getModuleList();
 								<?= $block->escapeHtml($module['lastVersion']) ?><small>(<?=__('last version');?>)</small>
 							</span>
 						</div>
+					</td>
+					<td class="mrall-active">
+						<?php echo $module['active']; ?>
 					</td>
 					<td class="data-grid-actions-cell">
 						<?php if (!empty($module['url'])): ?>
@@ -79,6 +83,9 @@ $modules = $block->getModuleList();
 							<?php if (!empty($module['date'])): ?>
 							<span class="mrall-date"><?= $block->escapeHtml($module['date']) ?></span>
 							<?php endif; ?>
+						</td>
+						<td class="mrall-active">
+							<?php echo $module['active']; ?>
 						</td>
 						<td class="data-grid-actions-cell">
 							<?php if (!empty($module['url'])): ?>
