@@ -1,6 +1,6 @@
 @import 'module/_magerubik.less';
 & when (@media-common = true){
-	.style-default.owl-carousel {margin-left: -15px;margin-right: -15px;width: auto;position: relative;}
+	.style-default.owl-carousel {width: auto;position: relative;}
 	.style-default.owl-carousel > .owl-stage-outer {margin-left: 15px;margin-right: 15px;}
 	.style-default.owl-carousel .owl-nav > button,.topControl.owl-carousel .owl-nav > button, .style-banner.owl-carousel .owl-nav > button,.topControl.owl-carousel .owl-nav > button {font-size: 0;}
 	.style-default.owl-carousel .owl-nav > .disabled,.topControl.owl-carousel .owl-nav > .disabled {opacity: 0.5;cursor: default;}
@@ -12,8 +12,8 @@
 	.style-banner.owl-carousel .owl-nav > .owl-prev:before {left:25px;}
 	.style-banner.owl-carousel .owl-nav > .owl-next:before {right:25px;}
 	.owl-carousel .owl-nav > .owl-prev, .owl-carousel .owl-nav > .owl-next {font-size: 0;}
-	.owl-carousel .owl-nav > .owl-prev:before {font-size: 1.8rem;font-family: "Font Awesome 5 Free";font-weight: 900;left:0;content: '\f104';padding-right: 3px;}
-	.owl-carousel .owl-nav > .owl-next:before {font-size: 1.8rem;font-family: "Font Awesome 5 Free";font-weight: 900;right:0;content: '\f105';padding-left: 3px;}
+	.owl-carousel .owl-nav > .owl-prev:before {font-size: 1.8rem;font-family: "Font Awesome 5 Free";font-weight: 900;left:-15px;content: '\f104';padding-right: 3px;}
+	.owl-carousel .owl-nav > .owl-next:before {font-size: 1.8rem;font-family: "Font Awesome 5 Free";font-weight: 900;right:-15px;content: '\f105';padding-left: 3px;}
 	.topControl.owl-carousel .owl-nav {position: absolute;top: -48px;right: 0;margin-top: 0;}
 	.topControl.owl-carousel .owl-nav > button {float:left;}
 	.topControl.owl-carousel .owl-nav > button:before {font-size: 18px;text-align: center;font-weight: 600;display: inline-block;width: 30px;height: 30px;line-height: 30px;font-family: 'Font Awesome 5 Free';background:#333;color:#fff;}
